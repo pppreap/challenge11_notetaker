@@ -36,9 +36,7 @@ let saveNotes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
 res.json(saveNotes[Number(req.params.id)]);
 });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/index.html'));
-});
+
 
 //POST  create request note
 app.post('/api/notes', (req, res) => {
@@ -71,8 +69,11 @@ app.delete('/api/notes/:id', (req, res)=>{
 //update db.json file to delete note
 fs.writeFileSync('./db/db.json', JSON.stringify(saveNotes));
   res.json(saveNotes);
-})
+});
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
 
 //where app is live and working location
 app.listen(PORT, () =>
