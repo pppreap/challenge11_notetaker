@@ -1,9 +1,7 @@
 //required dependencies
 const express = require('express');
 const fs = require('fs');
-
 const path = require('path');
-
 
 //`app` variable set to the value of `express()`
 const app = express();
@@ -18,7 +16,7 @@ app.use(express.json());
 
 //routes for the api data index.html notes.html
 // GET Route for homepage
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
@@ -28,17 +26,53 @@ app.get('/notes', (req, res) => {
 });
 
 //GET Route for the api/notes
-app.get('/api/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, './db/db.json'))
-);
-
-//POST  create request 
-app.post('/api/notes', (req, res) => {
-let id = db.push(req.body);
-fs.writeFile('./db/db.json', JSON.stringify(db),()=> {
-  res.json({...req.body,id:id})
-})
+app.get('/api/notes', (req, res) => {
+  res.sendFile(path.join(__dirname, './db/db.json'));
 });
+
+//GET Route for api/notes/:id (saved notes)
+app.get('/api/notes/:id', (req, res) => {
+let saveNotes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
+res.json(saveNotes[Number(req.params.id)]);
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+//POST  create request note
+app.post('/api/notes', (req, res) => {
+let saveNotes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
+  //deconstructuring object 
+let newNotes = req.body;
+let notesID = (saveNotes.length).toString();
+newNotes.id = notesID;
+saveNotes.push(newNotes);
+
+//update db.json file with notes inputted tp db
+fs.writeFileSync('./db/db.json', JSON.stringify(saveNotes));
+  res.json(saveNotes);
+});
+
+//DELETE request for note function
+app.delete('/api/notes/:id', (req, res)=>{
+  let saveNotes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
+  let noteID = req.params.id;
+  let startNote = 0;
+  saveNotes = saveNotes.filter(currentNote => {
+    return currentNote.id != noteID;
+  })
+
+  //
+for (currentNote of saveNotes) {
+  currentNote.id = startNote.toString();
+  startNote++;
+}
+//update db.json file tp delete note
+fs.writeFileSync('./db/db.json', JSON.stringify(saveNotes));
+  res.json(saveNotes);
+})
+
 
 //where app is live and working location
 app.listen(PORT, () =>
