@@ -1,8 +1,9 @@
+//required dependencies
 const express = require('express');
 const fs = require('fs');
 
 const path = require('path');
-const db = path.join(__dirname, "/public");
+
 
 //`app` variable set to the value of `express()`
 const app = express();
@@ -17,14 +18,14 @@ app.use(express.json());
 
 //routes for the api data index.html notes.html
 // GET Route for homepage
-app.get('*', (req, res) =>
-  res.sendFile(path.join(db, 'index.html'))
-);
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
 
 // GET Route for notes page
-app.get('/notes', (req, res) =>
-  res.sendFile(path.join(db, 'notes.html'))
-);
+app.get('/notes', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/notes.html'));
+});
 
 //GET Route for the api/notes
 app.get('/api/notes', (req, res) =>
