@@ -1,6 +1,6 @@
 # Module 11 Challenge : Note Taker 
 Using Node.js and Express.js, a server side note application will be created that allow users to post notes and organize their tasks. The front end codes has been provided and only the backend codes need to be completed to make this a working application. This application will be deploy in Heroku.
-Link to [Application]:(hhttps://calm-mesa-47785.herokuapp.com/)
+Link to [Application]:(https://calm-mesa-47785.herokuapp.com/)
 
 # User Story 
 
@@ -36,9 +36,10 @@ THEN the user  **presented with empty fields to enter a new note title and the n
 
 ### Assets
 These are images of the working application.
-![Start of the application](./assets/)
-![Saved Notes](./assets/)
-![Note Page](./assets/)
+![Start of the application](./assets/startpg.png)
+![Saved Notes](./assets/savenote.png)
+![Note Page](./assets/listshow.png)
+![Delete Note](./assets/delete.png)
 
 #### Links
 [Github Repository](https://github.com/pppreap/challenge11_notetaker) 
