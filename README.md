@@ -1,6 +1,5 @@
 # Module 11 Challenge : Note Taker 
-Using Node.js and Express.js, an note application will be created that allow users to post save and post notes. It will help the user organize their tasks. The front end code has been provided and only the backend code need to be completed to make this note application. This application will be deploy in Heroku.
-Link to [Application](https://calm-mesa-47785.herokuapp.com/)
+Using Node.js and Express.js, an note application will be created that allow users to post save and post notes. It will help the user organize their tasks. The front end code has been provided and only the backend code need to be completed to make this note application. This application will be deploy in Heroku: [Link to Note Taker Application](https://calm-mesa-47785.herokuapp.com/).
 
 # User Story 
 
@@ -42,9 +41,9 @@ These are images of the working application.
 ![Delete Note](./public/assets/delete.png)
 
 #### Links
-[Github Repository](https://github.com/pppreap/challenge11_notetaker) 
+[Github Repository](https://github.com/pppreap/challenge11_notetaker) --> : https://github.com/pppreap/challenge11_notetaker
 ///
-[Link to App](https://calm-mesa-47785.herokuapp.com/)
+[Link to App](https://calm-mesa-47785.herokuapp.com/) ---> :https://calm-mesa-47785.herokuapp.com/
 
 #### Credits/Licenses
 Starter Code: Michigan State University Full Stack Development Coding Program. //
