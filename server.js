@@ -63,10 +63,9 @@ app.delete('/api/notes/:id', (req, res)=>{
     return currentNote.id != noteID;
   })
 
-  //
+  //filter through notes used
 for (currentNote of saveNotes) {
   currentNote.id = startNote.toString();
-  startNote++;
 }
 //update db.json file tp delete note
 fs.writeFileSync('./db/db.json', JSON.stringify(saveNotes));
