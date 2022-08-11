@@ -43,10 +43,9 @@ app.get('*', (req, res) => {
 //POST  create request note
 app.post('/api/notes', (req, res) => {
 let saveNotes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
-  //deconstructuring object 
 let newNotes = req.body;
-let notesID = (saveNotes.length).toString();
-newNotes.id = notesID;
+let codeID = (saveNotes.length).toString();
+newNotes.id = codeID;
 saveNotes.push(newNotes);
 
 //update db.json file with notes inputted tp db
@@ -59,15 +58,17 @@ app.delete('/api/notes/:id', (req, res)=>{
   let saveNotes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
   let noteID = req.params.id;
   let startNote = 0;
+  //filter through notes to delete correct note id
   saveNotes = saveNotes.filter(currentNote => {
     return currentNote.id != noteID;
   })
+//update note id number
+  for (currentNote of saveNotes) {
+    currentNote.id = startNote.toString();
+    startNote++;
+  }
 
-  //filter through notes used
-for (currentNote of saveNotes) {
-  currentNote.id = startNote.toString();
-}
-//update db.json file tp delete note
+//update db.json file to delete note
 fs.writeFileSync('./db/db.json', JSON.stringify(saveNotes));
   res.json(saveNotes);
 })
