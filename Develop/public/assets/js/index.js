@@ -1,24 +1,3 @@
-const express = require('express');
-const fs = require ('fs');
-
-//`app` variable set to the value of `express()`
-const app = express();
-const PORT = 3000;
-
-//middleware to serve static files from `/public`
-app.use(express.static('public'));
-
-//HTML route to serve up `index.html`  and `notes.html`
-
-app.get('/', (req, res) => res.send('Navigate to /send or /routes'));
-
-app.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, 'public/notes.html'))
-);
-
-app.listen(PORT, () =>
-  console.log(`Example app listening at http://localhost:${PORT} `)
-);
 
 //variable used for the note title, text, and buttons for save and new note, note list
 let noteTitle;
@@ -82,8 +61,8 @@ const renderActiveNote = () => {
     noteTitle.value = activeNote.title;
     noteText.value = activeNote.text;
   } else {
-    noteTitle.removeAttribute('readonly');
-    noteText.removeAttribute('readonly');
+    // noteTitle.removeAttribute('readonly');
+    // noteText.removeAttribute('readonly');
     noteTitle.value = '';
     noteText.value = '';
   }
@@ -98,6 +77,7 @@ const handleNoteSave = () => {
     getAndRenderNotes();
     renderActiveNote();
   });
+  
 };
 
 // Delete the clicked note
