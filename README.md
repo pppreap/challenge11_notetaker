@@ -43,7 +43,7 @@ These are images of the working application.
 #### Links
 [Github Repository](https://github.com/pppreap/challenge11_notetaker) --> : https://github.com/pppreap/challenge11_notetaker
 ///
-[Link to App](https://calm-mesa-47785.herokuapp.com/) ---> :https://calm-mesa-47785.herokuapp.com/
+[Link to App](https://calm-mesa-47785.herokuapp.com/) ---> :  https://calm-mesa-47785.herokuapp.com/
 
 #### Credits/Licenses
 Starter Code: Michigan State University Full Stack Development Coding Program. //

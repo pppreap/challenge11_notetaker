@@ -5,6 +5,7 @@ const path = require('path');
 
 //`app` variable set to the value of `express()`
 const app = express();
+
 const PORT = process.env.PORT || 3000;
 
 //middleware to serve static files from `/public`
@@ -14,7 +15,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//routes for the api data index.html notes.html
+//routes for the api notes data index.html notes.html
 // GET Route for homepage
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
@@ -36,8 +37,6 @@ let saveNotes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
 res.json(saveNotes[Number(req.params.id)]);
 });
 
-
-
 //POST  create request note
 app.post('/api/notes', (req, res) => {
 let saveNotes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
@@ -46,7 +45,7 @@ let codeID = (saveNotes.length).toString();
 newNotes.id = codeID;
 saveNotes.push(newNotes);
 
-//update db.json file with notes inputted tp db
+//update db.json file with notes inputted to db
 fs.writeFileSync('./db/db.json', JSON.stringify(saveNotes));
   res.json(saveNotes);
 });
@@ -71,11 +70,12 @@ fs.writeFileSync('./db/db.json', JSON.stringify(saveNotes));
   res.json(saveNotes);
 });
 
+// return to note app homepage 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
-//where app is live and working location
+//where app is live and working location on client port
 app.listen(PORT, () =>
   console.log(`App running at http://localhost:${PORT}`)
 );
