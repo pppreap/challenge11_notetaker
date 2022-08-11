@@ -1,5 +1,4 @@
 
-//variable used for the note title, text, and buttons for save and new note, note list
 let noteTitle;
 let noteText;
 let saveNoteBtn;
