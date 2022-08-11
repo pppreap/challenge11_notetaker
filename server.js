@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 
 const path = require('path');
-const landingPage = path.join(__dirname, '/public');
+const db = path.join(__dirname, "/public");
 
 //`app` variable set to the value of `express()`
 const app = express();
@@ -15,22 +15,31 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// routes to serve up api data index.html  notes.html
-app.get('/notes', (req, res) => res.sendFile(path.join(landingPage,'notes.html'))
+//routes for the api data index.html notes.html
+// GET Route for homepage
+app.get('*', (req, res) =>
+  res.sendFile(path.join(db, 'index.html'))
 );
 
+// GET Route for notes page
+app.get('/notes', (req, res) =>
+  res.sendFile(path.join(db, 'notes.html'))
+);
+
+//GET Route for the api/notes
 app.get('/api/notes', (req, res) =>
   res.sendFile(path.join(__dirname, './db/db.json'))
 );
 
-app.get('/api/notes/:id', (req, res)=> {
-  readFromFile('./db/db.json')
-  .then((data) => res.json(JSON.parse(data)));
+//POST  create request 
+app.post('/api/notes', (req, res) => {
+let id = db.push(req.body);
+fs.writeFile('./db/db.json', JSON.stringify(db),()=> {
+  res.json({...req.body,id:id})
+})
 });
-
-fs.writeFileSync("")
 
 //where app is live and working location
 app.listen(PORT, () =>
-  console.log(`Example app listening at http://localhost:${PORT}`)
+  console.log(`App running at http://localhost:${PORT}`)
 );
