@@ -34,7 +34,7 @@ THEN the user  **presented with empty fields to enter a new note title and the n
 
 
 ### Assets
-These are images of the working application.
+These are images of the working application: create notes, save notes, view notes, and delete notes.
 ![Start of the application](./public/assets/startpg.png)
 ![Saved Notes](./public/assets/savenote.png)
 ![Note Page](./public/assets/listshow.png)
