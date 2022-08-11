@@ -1,11 +1,11 @@
 # Module 11 Challenge : Note Taker 
-Using Node.js and Express.js, a server side note application will be created that allow users to post notes and organize their tasks. The front end codes has been provided and only the backend codes need to be completed to make this a working application. This application will be deploy in Heroku.
-Link to [Application]:(https://calm-mesa-47785.herokuapp.com/)
+Using Node.js and Express.js, an note application will be created that allow users to post save and post notes. It will help the user organize their tasks. The front end code has been provided and only the backend code need to be completed to make this note application. This application will be deploy in Heroku.
+Link to [Application](https://calm-mesa-47785.herokuapp.com/)
 
 # User Story 
 
-As A small business owner,
-The user wants to be able to write and save notes in an application.
+As a small business owner,
+the user wants to be able to write and save notes in an application.
 This will effectively help them organize their thoughts and keep track of tasks that needs to be completed.
 
 
@@ -36,10 +36,10 @@ THEN the user  **presented with empty fields to enter a new note title and the n
 
 ### Assets
 These are images of the working application.
-![Start of the application](./assets/startpg.png)
-![Saved Notes](./assets/savenote.png)
-![Note Page](./assets/listshow.png)
-![Delete Note](./assets/delete.png)
+![Start of the application](./public/assets/startpg.png)
+![Saved Notes](./public/assets/savenote.png)
+![Note Page](./public/assets/listshow.png)
+![Delete Note](./public/assets/delete.png)
 
 #### Links
 [Github Repository](https://github.com/pppreap/challenge11_notetaker) 
@@ -49,7 +49,7 @@ These are images of the working application.
 #### Credits/Licenses
 Starter Code: Michigan State University Full Stack Development Coding Program. //
 [CSS Frameworks]: Bootstrap The source code is licensed MIT. (https://getbootstrap.com/) //
-[Icons]:(https://fontawesome.com/) //
+[Icons](https://fontawesome.com/) //
  Insomnia for testing  //
- Heroku for app deployment
+ Heroku for Application deployment
 
